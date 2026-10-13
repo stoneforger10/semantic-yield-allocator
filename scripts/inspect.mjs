@@ -10,7 +10,16 @@ function checkRoot(x){const {root,...body}=x;if(hash(body)!==root)throw Error('R
 const client=createClient({chain:studionet});
 async function read(functionName,args){
   try{return await client.readContract({address,functionName,args});}
-  catch{throw Error('Sanitized contract read failure: '+functionName);}
+  catch(error){
+    for(let e=error,depth=0;e&&depth<8;e=e.cause,depth++){
+      const result=e.data?.receipt?.result;
+      if(typeof result==='string'){
+        const message=Buffer.from(result,'base64').toString('utf8').match(/\[EXPECTED\][^\x00\r\n]{0,180}/)?.[0];
+        if(message)throw Error(message);
+      }
+    }
+    throw Error('Sanitized contract read failure: '+functionName);
+  }
 }
 function choose(stats,inventory){
   const available=stats.map((s,i)=>i).filter(i=>stats[i].attempts<inventory[i].items.length);
@@ -46,6 +55,13 @@ try{
   }
   if(previous&&previous!==job.last_root)throw Error('Chain head');
   if(canonical(stats)!==canonical(job.stats))throw Error('Final statistics');
-  const next=job.state==='ACTIVE'?await read('next_trial',[key]):null;
-  console.log(JSON.stringify({key,state:job.state,trials:job.trials,stats:job.stats,next,reports,roots_verified:true}));
+  let next=null,next_error=null;
+  if(job.state==='ACTIVE'){
+    try{next=await read('next_trial',[key]);}
+    catch(error){
+      if(!error.message.includes('[EXPECTED] no active trial'))throw error;
+      next_error=error.message;
+    }
+  }
+  console.log(JSON.stringify({key,state:job.state,deadline:job.spec.deadline,trials:job.trials,stats:job.stats,next,next_error,reports,roots_verified:true}));
 }catch(error){console.error(error.message);process.exitCode=1;}

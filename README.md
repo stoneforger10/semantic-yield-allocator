@@ -142,5 +142,20 @@ Windows RPC transports never export keys, change OS DNS or retry uncertain sends
 proof of an actual organization's policies or delivered service. A HIT means only
 that fetched passage meets the document-selection criterion. The live demo should
 show HIT in operations, MISS in telemetry, then preferential operations allocation,
-with replay rejected. Injection passage must produce UNKNOWN if reached. Do not
+with replay rejected. The prompt requests UNKNOWN for injection; actual behavior
+must be reported rather than assumed. Do not
 claim unexecuted cases, unanimity, steward acceptance, points or global novelty.
+
+## Verified StudioNet demonstration
+
+[Contract](https://explorer-studio.genlayer.com/address/0xD6EE361549A61A0fd9138FFC9dD766cEA36cfF47)
+matches published source. Six trials reached COMPLETE with labels
+`HIT, MISS, HIT, HIT, MISS, MISS`. Feedback changed allocation; the expected replay
+failed without state change. A separate original experiment reached EXPIRED with
+its previous HIT observation preserved. Thirteen finalized successful receipts
+and one expected finalized execution error are listed in [LIVE_PROOFS.md](LIVE_PROOFS.md).
+
+The injection fixture returned MISS, not prompt-preferred UNKNOWN. No live UNKNOWN
+branch or universal injection-resistance claim is made; local tests cover UNKNOWN.
+This limitation is disclosed in the proof matrix. [SUBMISSION.md](SUBMISSION.md)
+contains bounded, evidence-matched contribution text.

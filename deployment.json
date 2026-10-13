@@ -1,0 +1,41 @@
+{
+  "network": "studionet",
+  "contract": "0xD6EE361549A61A0fd9138FFC9dD766cEA36cfF47",
+  "creator": "0x7a413BB4AB62E31d62d4cD9efC8C8a8Dae37FB42",
+  "source_commit": "33d233ebd5d35aaad14e35d0ac096944de79f791",
+  "normalized_source_sha256": "caf9da79dcbb3e3f74bc9354871cb00acf9470f822c90c9c41e1c7f2f1bdc353",
+  "corpus_sha256": "99669ef5272353aeccf714b2e30573fcbea5659e700418121bde6ef7b3d71ab6",
+  "demo_name": "demo-v2",
+  "experiment_key": "aa7654adecbdfb720956cb01a329c35bcb157fb68d5c87605d96b96602fe1ad8",
+  "expired_experiment_key": "cfde0f0f540e6ca0a1f293a4239b4845f0036e2c140e91b97504c587655c620f",
+  "verified_receipts": {
+    "deployment": "0xf218588acd74bedbf02aec1274f402c71c9b4b42f5890e7e811e3570493028e6",
+    "registration": "0xc4f689f260a02bcb6bf077ebb8dc869c82d8710d964dc23f26e283a15754e9ff",
+    "activation": "0x17b882eac72edd8207ca69d36374d48d066edd431bf63ccf45fd7f72eb2b855b",
+    "initial_registration": "0x2c394ab76cc08b3309d5aae3a8cc3d9f5c5ac8d40fa7b59f8ba13e76f8281e5d",
+    "initial_activation": "0x1aedebe2c24710ee3659d70e18f4b78e51c1e34ef788caa936a1d99d1ce3285f",
+    "initial_trial": "0x6b97d0eab89996d51a23220fbb0ae827708d21ed8dada0cf29327c879dedba44",
+    "initial_expiry": "0xd5c97348ac64057d57f753fdc2050a7d9792bcb1d948db5f09b3bd1edf9a9d85",
+    "trial_0": "0xc4accea1d646b2cbe21e871ea7f8e23bcb492aac2a017457e0010e7f36748f66",
+    "trial_1": "0x8302e8276fe4a4424a9872345ac6a3eccc2bd779976efb7596a949c67ef83b52",
+    "trial_2": "0x0fc0bd972968ae93a42a089fb7770d6ed1e0fc5559d4475e140706aa6334b946",
+    "trial_3": "0x46144ee0ed11eb26aa5f47ef7a66d859bb24cd9cf51b9cfb975d31bad1c79250",
+    "trial_4": "0x8390494c6355cc2dccc9808eb052872bd2b81a7979683e92f16ecba37de749ce",
+    "trial_5": "0xc7a50d1bb464ecb0bfe2f799c49c79204552fc04e8ea4fe87df5ebf8ac99a6a5",
+    "replay_expected_error": "0x4509dc28ec9c595b66b66b7a72a11e52c50d18d23ba1c1d15191fdec41b6165e"
+  },
+  "final_state": "COMPLETE",
+  "final_trials": 6,
+  "final_observation_root": "0846f750eb30267285578baf965d5800bc3a776e191385ab33004887df735a20",
+  "labels": ["HIT", "MISS", "HIT", "HIT", "MISS", "MISS"],
+  "final_stats": [
+    {"arm": "operations", "attempts": 3, "known": 3, "hits": 3},
+    {"arm": "telemetry", "attempts": 3, "known": 3, "hits": 0}
+  ],
+  "limitations": {
+    "synthetic_corpus": true,
+    "live_unknown_branch_tested": false,
+    "injection_fixture_observed_label": "MISS",
+    "injection_fixture_prompt_preferred_label": "UNKNOWN"
+  }
+}
